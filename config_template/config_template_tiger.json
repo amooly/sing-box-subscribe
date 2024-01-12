@@ -22,7 +22,7 @@
             {
                 "tag": "proxyDns",
                 "address": "tls://8.8.8.8",
-                "detour": "proxy_out"
+                "detour": "默认代理"
             },
             {
                 "tag": "localDns",
@@ -80,24 +80,21 @@
             "users": []
         },
         {
-            "type": "mixed",
-            "tag": "proxy_in",
+            "type": "proxy_in",
             "listen": "127.0.0.1",
             "listen_port": 9999,
             "sniff": true,
             "users": []
         },
         {
-            "type": "mixed",
-            "tag": "ai",
+            "type": "ai",
             "listen": "127.0.0.1",
             "listen_port": 9998,
             "sniff": true,
             "users": []
         },
         {
-            "type": "mixed",
-            "tag": "direct_in",
+            "type": "direct_in",
             "listen": "127.0.0.1",
             "listen_port": 9997,
             "sniff": true,
@@ -106,16 +103,24 @@
     ],
     "outbounds": [
         {
-            "tag": "proxy_out",
+            "tag": "默认代理",
             "type": "selector",
             "outbounds": [
                 "auto",
                 "direct",
                 "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "官网地址|更多地区|更新订阅|t.me/"
+                    ]
+                }
             ]
         },
         {
-            "tag": "🤖 AI",
+            "tag": "🤖 AI节点",
             "type": "selector",
             "outbounds": [
                 "{all}"
@@ -133,12 +138,13 @@
             "tag": "🌌 Google",
             "type": "selector",
             "outbounds": [
+                "direct",
+                "🤖 AI节点",
                 "🇭🇰 香港节点",
                 "🇹🇼 台湾节点",
                 "🇸🇬 狮城节点",
                 "🇯🇵 日本节点",
                 "🇺🇸 美国节点",
-                "🤖 AI",
                 "✈️ 其他节点"
             ]
         },
@@ -160,12 +166,12 @@
             "type": "selector",
             "outbounds": [
                 "direct",
+                "🤖 AI节点",
                 "🇭🇰 香港节点",
                 "🇹🇼 台湾节点",
                 "🇸🇬 狮城节点",
                 "🇯🇵 日本节点",
                 "🇺🇸 美国节点",
-                "🤖 AI",
                 "✈️ 其他节点"
             ]
         },
@@ -221,7 +227,7 @@
             "type": "selector",
             "outbounds": [
                 "{all}",
-                "proxy_out"
+                "默认代理"
             ],
             "filter": [
                 {
@@ -243,7 +249,7 @@
             "type": "selector",
             "outbounds": [
                 "{all}",
-                "proxy_out"
+                "默认代理"
             ],
             "filter": [
                 {
@@ -259,7 +265,7 @@
             "type": "selector",
             "outbounds": [
                 "{all}",
-                "proxy_out"
+                "默认代理"
             ],
             "filter": [
                 {
@@ -275,7 +281,7 @@
             "type": "selector",
             "outbounds": [
                 "{all}",
-                "proxy_out"
+                "默认代理"
             ],
             "filter": [
                 {
@@ -291,7 +297,7 @@
             "type": "selector",
             "outbounds": [
                 "{all}",
-                "proxy_out"
+                "默认代理"
             ],
             "filter": [
                 {
@@ -307,7 +313,7 @@
             "type": "selector",
             "outbounds": [
                 "{all}",
-                "proxy_out"
+                "默认代理"
             ],
             "filter": [
                 {
@@ -323,7 +329,7 @@
             "type": "selector",
             "outbounds": [
                 "direct",
-                "proxy_out"
+                "默认代理"
             ]
         },
         {
@@ -367,19 +373,19 @@
     ],
     "route": {
         "auto_detect_interface": true,
-        "final": "proxy_out",
+        "final": "默认代理",
         "rules": [
             {
                 "inbound": [
                     "ai"
                 ],
-                "outbound": "🤖 AI"
+                "outbound": "🤖 AI节点"
             },
             {
                 "inbound": [
                     "proxy_in"
                 ],
-                "outbound": "proxy_out"
+                "outbound": "默认代理"
             },
             {
                 "inbound": [
@@ -406,7 +412,7 @@
             },
             {
                 "clash_mode": "global",
-                "outbound": "proxy_out"
+                "outbound": "默认代理"
             },
             {
                 "domain": [
@@ -419,7 +425,7 @@
             },
             {
                 "rule_set": "geosite-openai",
-                "outbound": "🤖 AI"
+                "outbound": "🤖 AI节点"
             },
             {
                 "domain": [
@@ -431,7 +437,7 @@
                     "bard.google.com",
                     "clients6.google.com"
                 ],
-                "outbound": "🤖 AI"
+                "outbound": "🤖 AI节点"
             },
             {
                 "rule_set": "geosite-youtube",
