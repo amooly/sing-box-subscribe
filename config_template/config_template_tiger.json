@@ -80,21 +80,24 @@
             "users": []
         },
         {
-            "type": "proxy_in",
+            "type": "mixed",
+            "tag": "proxy_in",
             "listen": "127.0.0.1",
             "listen_port": 9999,
             "sniff": true,
             "users": []
         },
         {
-            "type": "ai",
+            "type": "mixed",
+            "tag": "ai",
             "listen": "127.0.0.1",
             "listen_port": 9998,
             "sniff": true,
             "users": []
         },
         {
-            "type": "direct_in",
+            "type": "mixed",
+            "tag": "direct_in",
             "listen": "127.0.0.1",
             "listen_port": 9997,
             "sniff": true,
