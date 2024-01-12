@@ -77,32 +77,28 @@
             "listen": "127.0.0.1",
             "listen_port": 2080,
             "sniff": true,
-            "users": [],
-            "memo": "基于规则的代理"
+            "users": []
         },
         {
             "type": "proxy_in",
             "listen": "127.0.0.1",
             "listen_port": 9999,
             "sniff": true,
-            "users": [],
-            "memo": "用于外部制定访问代理"
+            "users": []
         },
         {
             "type": "ai",
             "listen": "127.0.0.1",
             "listen_port": 9998,
             "sniff": true,
-            "users": [],
-            "memo": "用于外部制定访问AI相关的代理"
+            "users": []
         },
         {
             "type": "direct_in",
             "listen": "127.0.0.1",
             "listen_port": 9997,
             "sniff": true,
-            "users": [],
-            "memo": "用于外部制定直接"
+            "users": []
         }
     ],
     "outbounds": [
