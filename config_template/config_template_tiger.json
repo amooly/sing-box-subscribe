@@ -39,7 +39,8 @@
                 "domain": [
                     "ghproxy.com",
                     "cdn.jsdelivr.net",
-                    "testingcf.jsdelivr.net"
+                    "testingcf.jsdelivr.net",
+                    "larkoffice.com"
                 ],
                 "server": "localDns"
             },
