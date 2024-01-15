@@ -394,7 +394,7 @@
     ],
     "route": {
         "auto_detect_interface": true,
-        "final": "默认代理",
+        "final": "direct",
         "rules": [
             {
                 "inbound": [
