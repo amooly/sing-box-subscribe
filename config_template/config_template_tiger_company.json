@@ -22,7 +22,7 @@
             {
                 "tag": "proxyDns",
                 "address": "tls://8.8.8.8",
-                "detour": "默认代理"
+                "detour": "Default Proxy"
             },
             {
                 "tag": "localDns",
@@ -107,12 +107,26 @@
     ],
     "outbounds": [
         {
-            "tag": "默认代理",
+            "tag": "Default Option",
             "type": "selector",
             "outbounds": [
-                "auto",
                 "direct",
-                "{all}"
+                "Default Proxy"
+            ]
+        },
+        {
+            "tag": "Default Proxy",
+            "type": "selector",
+            "outbounds": [
+                "Auto Select",
+                "direct",
+                "🤖 AI 节点",
+                "🇭🇰 香港节点",
+                "🇹🇼 台湾节点",
+                "🇸🇬 狮城节点",
+                "🇯🇵 日本节点",
+                "🇺🇸 美国节点",
+                "✈️ 其他节点"
             ],
             "filter": [
                 {
@@ -124,16 +138,19 @@
             ]
         },
         {
-            "tag": "🤖 AI节点",
-            "type": "selector",
+            "tag": "Auto Select",
+            "type": "urltest",
             "outbounds": [
                 "{all}"
             ],
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "5m",
+            "tolerance": 50,
             "filter": [
                 {
-                    "action": "include",
+                    "action": "exclude",
                     "keywords": [
-                        "ChatGPT"
+                        "官网地址|更多地区|更新订阅|t.me/"
                     ]
                 }
             ]
@@ -143,7 +160,7 @@
             "type": "selector",
             "outbounds": [
                 "direct",
-                "🤖 AI节点",
+                "🤖 AI 节点",
                 "🇭🇰 香港节点",
                 "🇹🇼 台湾节点",
                 "🇸🇬 狮城节点",
@@ -170,7 +187,7 @@
             "type": "selector",
             "outbounds": [
                 "direct",
-                "🤖 AI节点",
+                "🤖 AI 节点",
                 "🇭🇰 香港节点",
                 "🇹🇼 台湾节点",
                 "🇸🇬 狮城节点",
@@ -214,24 +231,41 @@
             ]
         },
         {
-            "tag": "🌏 !cn",
+            "tag": "🌏 cn",
             "type": "selector",
             "outbounds": [
-                "🇭🇰 香港节点",
-                "🇹🇼 台湾节点",
-                "🇸🇬 狮城节点",
-                "🇯🇵 日本节点",
-                "🇺🇸 美国节点",
-                "✈️ 其他节点",
+                "direct",
+                "Default Proxy"
+            ]
+        },
+        {
+            "tag": "🛑 AdBlock",
+            "type": "selector",
+            "outbounds": [
+                "block",
                 "direct"
+            ]
+        },
+        {
+            "tag": "🤖 AI 节点",
+            "type": "selector",
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "ChatGPT"
+                    ]
+                }
             ]
         },
         {
             "tag": "🇭🇰 香港节点",
             "type": "selector",
             "outbounds": [
-                "{all}",
-                "默认代理"
+                "{all}"
             ],
             "filter": [
                 {
@@ -252,8 +286,7 @@
             "tag": "🇹🇼 台湾节点",
             "type": "selector",
             "outbounds": [
-                "{all}",
-                "默认代理"
+                "{all}"
             ],
             "filter": [
                 {
@@ -268,8 +301,7 @@
             "tag": "🇸🇬 狮城节点",
             "type": "selector",
             "outbounds": [
-                "{all}",
-                "默认代理"
+                "{all}"
             ],
             "filter": [
                 {
@@ -284,8 +316,7 @@
             "tag": "🇯🇵 日本节点",
             "type": "selector",
             "outbounds": [
-                "{all}",
-                "默认代理"
+                "{all}"
             ],
             "filter": [
                 {
@@ -300,8 +331,7 @@
             "tag": "🇺🇸 美国节点",
             "type": "selector",
             "outbounds": [
-                "{all}",
-                "默认代理"
+                "{all}"
             ],
             "filter": [
                 {
@@ -316,48 +346,13 @@
             "tag": "✈️ 其他节点",
             "type": "selector",
             "outbounds": [
-                "{all}",
-                "默认代理"
+                "{all}"
             ],
             "filter": [
                 {
                     "action": "exclude",
                     "keywords": [
                         "🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|网站|剩余|流量|过期|时间|期|地址"
-                    ]
-                }
-            ]
-        },
-        {
-            "tag": "🌏 cn",
-            "type": "selector",
-            "outbounds": [
-                "direct",
-                "默认代理"
-            ]
-        },
-        {
-            "tag": "🛑 AdBlock",
-            "type": "selector",
-            "outbounds": [
-                "block",
-                "direct"
-            ]
-        },
-        {
-            "tag": "auto",
-            "type": "urltest",
-            "outbounds": [
-                "{all}"
-            ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "5m",
-            "tolerance": 50,
-            "filter": [
-                {
-                    "action": "exclude",
-                    "keywords": [
-                        "官网地址|更多地区|更新订阅|t.me/"
                     ]
                 }
             ]
@@ -377,19 +372,19 @@
     ],
     "route": {
         "auto_detect_interface": true,
-        "final": "direct",
+        "final": "Default Option",
         "rules": [
             {
                 "inbound": [
                     "ai"
                 ],
-                "outbound": "🤖 AI节点"
+                "outbound": "🤖 AI 节点"
             },
             {
                 "inbound": [
                     "proxy_in"
                 ],
-                "outbound": "默认代理"
+                "outbound": "Default Proxy"
             },
             {
                 "inbound": [
@@ -416,7 +411,7 @@
             },
             {
                 "clash_mode": "global",
-                "outbound": "默认代理"
+                "outbound": "Default Proxy"
             },
             {
                 "domain": [
@@ -430,7 +425,7 @@
             },
             {
                 "rule_set": "geosite-openai",
-                "outbound": "🤖 AI节点"
+                "outbound": "🤖 AI 节点"
             },
             {
                 "domain": [
@@ -442,20 +437,13 @@
                     "bard.google.com",
                     "clients6.google.com"
                 ],
-                "outbound": "🤖 AI节点"
-            },
-            {
-                "rule_set": "geosite-youtube",
-                "outbound": "🌌 Google"
-            },
-            {
-                "rule_set": "geoip-google",
-                "outbound": "🌌 Google"
+                "outbound": "🤖 AI 节点"
             },
             {
                 "rule_set": [
                     "geosite-google",
-                    "geosite-github"
+                    "geoip-google",
+                    "geosite-youtube"
                 ],
                 "outbound": "🌌 Google"
             },
@@ -490,8 +478,17 @@
                 "outbound": "🎬 MediaVideo"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "outbound": "🌏 !cn"
+                "rule_set": [
+                    "geoip-telegram",
+                    "geosite-telegram",
+                    "geoip-twitter",
+                    "geosite-twitter",
+                    "geosite-github",
+                    "geosite-instagram",
+                    "geosite-facebook",
+                    "geosite-geolocation-!cn"
+                ],
+                "outbound": "自动代理"
             },
             {
                 "ip_is_private": true,
