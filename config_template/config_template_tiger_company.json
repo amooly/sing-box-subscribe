@@ -488,7 +488,7 @@
                     "geosite-facebook",
                     "geosite-geolocation-!cn"
                 ],
-                "outbound": "自动代理"
+                "outbound": "Default Proxy"
             },
             {
                 "ip_is_private": true,
