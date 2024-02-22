@@ -70,8 +70,8 @@ def parse(data):
         'server': item.get('add'),
         'server_port': int(item.get('port')),
         'uuid': item.get('id'),
-        'security': item.get('scy') if item.get('scy') != 'http' else 'auto',
-        'alter_id': int(item.get('aid','0')),
+        'security': item.get('scy') if item.get('scy') not in ['http', None] else 'auto',
+        'alter_id': int(item["aid"] if item.get("aid") else '0'),
         'packet_encoding': 'xudp'
     }
     if node['security'] == 'gun':
@@ -102,7 +102,7 @@ def parse(data):
                 else:
                     node['transport']['method'] = 'GET'
                     node['transport']['path'] = item['path'][0]
-        if item['net'] == 'ws':
+        elif item['net'] == 'ws':
             node['transport'] = {
                 'type': 'ws'
             }
@@ -118,11 +118,11 @@ def parse(data):
             if '?ed=' in str(item.get('path', '')):
                 node['transport']['early_data_header_name'] = 'Sec-WebSocket-Protocol'
                 node['transport']['max_early_data'] = int(re.search(r'\d+', item.get('path').rsplit("?ed=")[1]).group())
-        if item['net'] == 'quic':
+        elif item['net'] == 'quic':
             node['transport'] = {
                 'type':'quic'
             }
-        if item['net'] == 'grpc':
+        elif item['net'] == 'grpc':
             node['transport'] = {
                 'type':'grpc',
                 'service_name':item.get('path', '')

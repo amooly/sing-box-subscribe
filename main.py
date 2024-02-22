@@ -43,6 +43,8 @@ def process_subscribes(subscribes):
     for subscribe in subscribes:
         if 'enabled' in subscribe and not subscribe['enabled']:
             continue
+        if 'sing-box-subscribe-doraemon.vercel.app' in subscribe['url']:
+            continue
         _nodes = get_nodes(subscribe['url'])
         if _nodes and len(_nodes) > 0:
             add_prefix(_nodes, subscribe)
@@ -106,12 +108,16 @@ def add_prefix(nodes, subscribe):
     if subscribe.get('prefix'):
         for node in nodes:
             node['tag'] = subscribe['prefix'] + node['tag']
+            if node.get('detour'):
+                node['detour'] = subscribe['prefix'] + node['detour']
 
 
 def add_emoji(nodes, subscribe):
     if subscribe.get('emoji'):
         for node in nodes:
             node['tag'] = tool.rename(node['tag'])
+            if node.get('detour'):
+                node['detour'] = tool.rename(node['detour'])
 
 
 def get_nodes(url):
@@ -190,6 +196,9 @@ def get_parser(node):
         eps = providers['exclude_protocol'].split(',')
         if len(eps) > 0:
             eps = [protocol.strip() for protocol in eps]
+            if 'hy2' in eps:
+                index = eps.index('hy2')
+                eps[index] = 'hysteria2'
             if proto in eps:
                 return None
     if not proto or proto not in parsers_mod.keys():
@@ -239,9 +248,10 @@ def get_content_from_url(url, n=6):
         return response_text
     elif 'proxies' in response_text:
         yaml_content = response.content.decode('utf-8')
+        response_text_no_tabs = yaml_content.replace('\t', ' ') #fuckU
         yaml = ruamel.yaml.YAML()
         try:
-            response_text = dict(yaml.load(yaml_content))
+            response_text = dict(yaml.load(response_text_no_tabs))
             return response_text
         except:
             pass
@@ -408,7 +418,7 @@ def combin_to_config(config, data):
                             out["outbounds"][index_of_all] = (group.rsplit("-", 1)[0]).rsplit("-", 1)[-1]
                             i += 1
                         else:
-                            out["outbounds"].insert(i - 1, (group.rsplit("-", 1)[0]).rsplit("-", 1)[-1])
+                            out["outbounds"].insert(i, (group.rsplit("-", 1)[0]).rsplit("-", 1)[-1])
             new_outbound = {'tag': (group.rsplit("-", 1)[0]).rsplit("-", 1)[-1], 'type': 'selector', 'outbounds': ['{' + group + '}']}
             config_outbounds.insert(-4, new_outbound)
         else:
