@@ -41,7 +41,8 @@
                     "cdn.jsdelivr.net",
                     "testingcf.jsdelivr.net",
                     "larkoffice.com",
-                    "byted.org"
+                    "byted.org",
+                    "bytedance.net"
                 ],
                 "server": "localDns"
             },
@@ -437,7 +438,9 @@
                     "yacd.metacubex.one",
                     "yacd.haishan.me",
                     "d.metacubex.one",
-                    "larkoffice.com"
+                    "larkoffice.com",
+                    "byted.org",
+                    "bytedance.net"
                 ],
                 "outbound": "direct"
             },
@@ -454,7 +457,7 @@
                     "bing.com",
                     "bard.google.com",
                     "gemini.google.com",
-                    "clients6.google.com"
+                    "googleapis.com"
                 ],
                 "outbound": "🤖 AI 节点"
             },
