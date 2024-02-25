@@ -40,7 +40,8 @@
                     "ghproxy.com",
                     "cdn.jsdelivr.net",
                     "testingcf.jsdelivr.net",
-                    "larkoffice.com"
+                    "larkoffice.com",
+                    "byted.org"
                 ],
                 "server": "localDns"
             },
