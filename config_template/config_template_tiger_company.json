@@ -41,7 +41,8 @@
                     "cdn.jsdelivr.net",
                     "testingcf.jsdelivr.net",
                     "larkoffice.com",
-                    "byted.org"
+                    "byted.org",
+                    "bytedance.net"
                 ],
                 "server": "localDns"
             },
@@ -74,6 +75,23 @@
         "strategy": "ipv4_only"
     },
     "inbounds": [
+        {
+            "type": "tun",
+            "inet4_address": "172.19.0.1/30",
+            "mtu": 9000,
+            "auto_route": true,
+            "strict_route": true,
+            "sniff": true,
+            "endpoint_independent_nat": false,
+            "stack": "system",
+            "platform": {
+                "http_proxy": {
+                    "enabled": true,
+                    "server": "127.0.0.1",
+                    "server_port": 2080
+                }
+            }
+        },
         {
             "type": "mixed",
             "listen": "127.0.0.1",
@@ -420,7 +438,9 @@
                     "yacd.metacubex.one",
                     "yacd.haishan.me",
                     "d.metacubex.one",
-                    "larkoffice.com"
+                    "larkoffice.com",
+                    "byted.org",
+                    "bytedance.net"
                 ],
                 "outbound": "direct"
             },
@@ -437,6 +457,7 @@
                     "bing.com",
                     "bard.google.com",
                     "gemini.google.com",
+                    "googleapis.com",
                     "clients6.google.com"
                 ],
                 "outbound": "🤖 AI 节点"
