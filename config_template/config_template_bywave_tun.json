@@ -183,7 +183,8 @@
             "type": "selector",
             "outbounds": [
                 "Default Proxy",
-                "Auto Select"
+                "Auto Select",
+                "{all}"
             ]
         },
         {
