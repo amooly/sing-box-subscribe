@@ -22,7 +22,7 @@
             {
                 "tag": "proxyDns",
                 "address": "tls://8.8.8.8",
-                "detour": "proxy"
+                "detour": "Default Proxy"
             },
             {
                 "tag": "localDns",
@@ -39,7 +39,10 @@
                 "domain": [
                     "ghproxy.com",
                     "cdn.jsdelivr.net",
-                    "testingcf.jsdelivr.net"
+                    "testingcf.jsdelivr.net",
+                    "larkoffice.com",
+                    "byted.org",
+                    "bytedance.net"                
                 ],
                 "server": "localDns"
             },
@@ -95,6 +98,30 @@
             "listen_port": 2080,
             "sniff": true,
             "users": []
+        },
+        {
+          "type": "mixed",
+          "tag": "proxy_in",
+          "listen": "127.0.0.1",
+          "listen_port": 9999,
+          "sniff": true,
+          "users": []
+        },
+        {
+          "type": "mixed",
+          "tag": "ai",
+          "listen": "127.0.0.1",
+          "listen_port": 9998,
+          "sniff": true,
+          "users": []
+        },
+        {
+          "type": "mixed",
+          "tag": "direct_in",
+          "listen": "127.0.0.1",
+          "listen_port": 9997,
+          "sniff": true,
+          "users": []
         }
     ],
     "outbounds": [
