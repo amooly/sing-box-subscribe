@@ -270,32 +270,6 @@
                 "outbound": "🍎 Apple"
             },
             {
-                "rule_set": "geosite-microsoft",
-                "outbound": "🧩 Microsoft"
-            },
-            {
-                "rule_set": "geosite-category-games",
-                "outbound": "🎮 Game"
-            },
-            {
-                "rule_set": "geosite-bilibili",
-                "outbound": "📺 Bilibili"
-            },
-            {
-                "rule_set": "geoip-netflix",
-                "outbound": "🎬 MediaVideo"
-            },
-            {
-                "rule_set": [
-                    "geosite-tiktok",
-                    "geosite-netflix",
-                    "geosite-hbo",
-                    "geosite-disney",
-                    "geosite-primevideo"
-                ],
-                "outbound": "🎬 MediaVideo"
-            },
-            {
                 "rule_set": [
                     "geoip-telegram",
                     "geosite-telegram",
