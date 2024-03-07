@@ -124,6 +124,7 @@ def get_nodes(url):
     if url.startswith('sub://'):
         url = tool.b64Decode(url[6:]).decode('utf-8')
     urlstr = urlparse(url)
+    print ("url parse:", urlstr)
     if not urlstr.scheme:
         try:
             content = tool.b64Decode(url).decode('utf-8')
