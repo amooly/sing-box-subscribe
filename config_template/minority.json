@@ -139,7 +139,8 @@
             "type": "selector",
             "outbounds": [
                 "direct",
-                "Default Proxy"
+                "Default Proxy",
+                "🤖 AI 节点"
             ]
         },
         {
