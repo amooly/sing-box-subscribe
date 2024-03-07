@@ -42,7 +42,7 @@
                     "testingcf.jsdelivr.net",
                     "larkoffice.com",
                     "byted.org",
-                    "bytedance.net"                
+                    "bytedance.net"
                 ],
                 "server": "localDns"
             },
@@ -83,28 +83,28 @@
             "users": []
         },
         {
-          "type": "mixed",
-          "tag": "proxy_in",
-          "listen": "127.0.0.1",
-          "listen_port": 9999,
-          "sniff": true,
-          "users": []
+            "type": "mixed",
+            "tag": "proxy_in",
+            "listen": "127.0.0.1",
+            "listen_port": 9999,
+            "sniff": true,
+            "users": []
         },
         {
-          "type": "mixed",
-          "tag": "ai",
-          "listen": "127.0.0.1",
-          "listen_port": 9998,
-          "sniff": true,
-          "users": []
+            "type": "mixed",
+            "tag": "ai",
+            "listen": "127.0.0.1",
+            "listen_port": 9998,
+            "sniff": true,
+            "users": []
         },
         {
-          "type": "mixed",
-          "tag": "direct_in",
-          "listen": "127.0.0.1",
-          "listen_port": 9997,
-          "sniff": true,
-          "users": []
+            "type": "mixed",
+            "tag": "direct_in",
+            "listen": "127.0.0.1",
+            "listen_port": 9997,
+            "sniff": true,
+            "users": []
         }
     ],
     "outbounds": [
@@ -166,8 +166,13 @@
                 "Default Proxy",
                 "{all}"
             ],
-            "filter":[
-              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "🇭🇰|HK|hk|香港|港|HongKong"
+                    ]
+                }
             ]
         },
         {
@@ -240,7 +245,9 @@
                     "yacd.metacubex.one",
                     "yacd.haishan.me",
                     "d.metacubex.one",
-                    "larkoffice.com"
+                    "larkoffice.com",
+                    "byted.org",
+                    "bytedance.net"
                 ],
                 "outbound": "direct"
             },
@@ -256,20 +263,16 @@
                     "grazie.ai",
                     "bing.com",
                     "bard.google.com",
+                    "gemini.google.com",
+                    "googleapis.com",
                     "clients6.google.com"
                 ],
                 "outbound": "🤖 AI 节点"
             },
             {
-                "rule_set": "geosite-youtube",
-                "outbound": "🌌 Google"
-            },
-            {
-                "rule_set": "geoip-google",
-                "outbound": "🌌 Google"
-            },
-            {
                 "rule_set": [
+                    "geosite-youtube",
+                    "geoip-google",
                     "geosite-google",
                     "geosite-github"
                 ],
