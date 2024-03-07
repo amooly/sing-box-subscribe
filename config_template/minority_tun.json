@@ -42,7 +42,7 @@
                     "testingcf.jsdelivr.net",
                     "larkoffice.com",
                     "byted.org",
-                    "bytedance.net"                
+                    "bytedance.net"
                 ],
                 "server": "localDns"
             },
@@ -100,28 +100,28 @@
             "users": []
         },
         {
-          "type": "mixed",
-          "tag": "proxy_in",
-          "listen": "127.0.0.1",
-          "listen_port": 9999,
-          "sniff": true,
-          "users": []
+            "type": "mixed",
+            "tag": "proxy_in",
+            "listen": "127.0.0.1",
+            "listen_port": 9999,
+            "sniff": true,
+            "users": []
         },
         {
-          "type": "mixed",
-          "tag": "ai",
-          "listen": "127.0.0.1",
-          "listen_port": 9998,
-          "sniff": true,
-          "users": []
+            "type": "mixed",
+            "tag": "ai",
+            "listen": "127.0.0.1",
+            "listen_port": 9998,
+            "sniff": true,
+            "users": []
         },
         {
-          "type": "mixed",
-          "tag": "direct_in",
-          "listen": "127.0.0.1",
-          "listen_port": 9997,
-          "sniff": true,
-          "users": []
+            "type": "mixed",
+            "tag": "direct_in",
+            "listen": "127.0.0.1",
+            "listen_port": 9997,
+            "sniff": true,
+            "users": []
         }
     ],
     "outbounds": [
@@ -138,7 +138,6 @@
             "type": "selector",
             "outbounds": [
                 "Auto Select",
-                "direct",
                 "{all}"
             ]
         },
@@ -158,7 +157,7 @@
             "outbounds": [
                 "direct",
                 "Default Proxy",
-                "Auto Select"
+                "🤖 AI 节点"
             ]
         },
         {
@@ -166,8 +165,7 @@
             "type": "selector",
             "outbounds": [
                 "direct",
-                "Default Proxy",
-                "Auto Select"
+                "Default Proxy"
             ]
         },
         {
@@ -183,8 +181,15 @@
             "type": "selector",
             "outbounds": [
                 "Default Proxy",
-                "Auto Select",
                 "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "🇭🇰|HK|hk|香港|港|HongKong"
+                    ]
+                }
             ]
         },
         {
@@ -192,8 +197,7 @@
             "type": "selector",
             "outbounds": [
                 "direct",
-                "Default Proxy",
-                "Auto Select"
+                "Default Proxy"
             ]
         },
         {
@@ -258,7 +262,9 @@
                     "yacd.metacubex.one",
                     "yacd.haishan.me",
                     "d.metacubex.one",
-                    "larkoffice.com"
+                    "larkoffice.com",
+                    "byted.org",
+                    "bytedance.net"
                 ],
                 "outbound": "direct"
             },
@@ -274,20 +280,16 @@
                     "grazie.ai",
                     "bing.com",
                     "bard.google.com",
+                    "gemini.google.com",
+                    "googleapis.com",
                     "clients6.google.com"
                 ],
                 "outbound": "🤖 AI 节点"
             },
             {
-                "rule_set": "geosite-youtube",
-                "outbound": "🌌 Google"
-            },
-            {
-                "rule_set": "geoip-google",
-                "outbound": "🌌 Google"
-            },
-            {
                 "rule_set": [
+                    "geosite-youtube",
+                    "geoip-google",
                     "geosite-google",
                     "geosite-github"
                 ],
