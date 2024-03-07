@@ -127,6 +127,7 @@ def get_nodes(url):
     if not urlstr.scheme:
         try:
             content = tool.b64Decode(url).decode('utf-8')
+            print ("after decode content:", content)
             data = parse_content(content)
             processed_list = []
             for item in data:
@@ -139,7 +140,7 @@ def get_nodes(url):
             content = get_content_form_file(url)
     else:
         content = get_content_from_url(url)
-    # print (content)
+    print (content)
     if type(content) == dict:
         if 'proxies' in content:
             share_links = []
