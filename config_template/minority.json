@@ -143,22 +143,6 @@
             ]
         },
         {
-            "tag": "🍎 Apple",
-            "type": "selector",
-            "outbounds": [
-                "direct",
-                "Default Proxy"
-            ]
-        },
-        {
-            "tag": "🛑 AdBlock",
-            "type": "selector",
-            "outbounds": [
-                "block",
-                "direct"
-            ]
-        },
-        {
             "tag": "🤖 AI 节点",
             "type": "selector",
             "outbounds": [
@@ -172,6 +156,22 @@
                         "🇭🇰|HK|hk|香港|港|HongKong"
                     ]
                 }
+            ]
+        },
+        {
+            "tag": "🍎 Apple",
+            "type": "selector",
+            "outbounds": [
+                "direct",
+                "Default Proxy"
+            ]
+        },
+        {
+            "tag": "🛑 AdBlock",
+            "type": "selector",
+            "outbounds": [
+                "block",
+                "direct"
             ]
         },
         {
