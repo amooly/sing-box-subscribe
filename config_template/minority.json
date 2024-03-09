@@ -26,7 +26,7 @@
             },
             {
                 "tag": "localDns",
-                "address": "https://223.5.5.5/dns-query",
+                "address": "local",
                 "detour": "direct"
             },
             {
@@ -135,12 +135,11 @@
             "tolerance": 50
         },
         {
-            "tag": "🌌 Google",
+            "tag": "🎥 Youtube",
             "type": "selector",
             "outbounds": [
                 "direct",
-                "Default Proxy",
-                "🤖 AI 节点"
+                "Default Proxy"
             ]
         },
         {
@@ -271,12 +270,9 @@
             },
             {
                 "rule_set": [
-                    "geosite-youtube",
-                    "geoip-google",
-                    "geosite-google",
-                    "geosite-github"
+                    "geosite-youtube"
                 ],
-                "outbound": "🌌 Google"
+                "outbound": "🎥 Youtube"
             },
             {
                 "rule_set": "geosite-apple",
@@ -284,6 +280,8 @@
             },
             {
                 "rule_set": [
+                    "geoip-google",
+                    "geosite-google",
                     "geoip-telegram",
                     "geosite-telegram",
                     "geoip-twitter",
