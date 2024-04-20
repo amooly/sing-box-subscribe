@@ -256,7 +256,7 @@
                 "outbound": "Default Proxy"
             },
             {
-                "domain": [
+                "domain_suffix": [
                     "clash.razord.top",
                     "yacd.metacubex.one",
                     "yacd.haishan.me",
@@ -272,7 +272,7 @@
                 "outbound": "🤖 AI 节点"
             },
             {
-                "domain": [
+                "domain_suffix": [
                     "openai.com",
                     "anthropic.com",
                     "claude.ai",
@@ -281,7 +281,9 @@
                     "bard.google.com",
                     "gemini.google.com",
                     "googleapis.com",
-                    "clients6.google.com"
+                    "clients6.google.com",
+                    "hume.ai",
+                    "groq.com"
                 ],
                 "outbound": "🤖 AI 节点"
             },
