@@ -36,13 +36,15 @@
         ],
         "rules": [
             {
-                "domain": [
+                "domain_suffix": [
                     "ghproxy.com",
                     "cdn.jsdelivr.net",
                     "testingcf.jsdelivr.net",
                     "larkoffice.com",
                     "byted.org",
-                    "bytedance.net"
+                    "bytedance.net",
+                    "feishu.cn",
+                    "feishucdn.com"
                 ],
                 "server": "localDns"
             },
@@ -263,7 +265,9 @@
                     "d.metacubex.one",
                     "larkoffice.com",
                     "byted.org",
-                    "bytedance.net"
+                    "bytedance.net",
+                    "feishu.cn",
+                    "feishucdn.com"
                 ],
                 "outbound": "direct"
             },
