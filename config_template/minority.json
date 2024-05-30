@@ -36,13 +36,15 @@
         ],
         "rules": [
             {
-                "domain": [
+                "domain_suffix": [
                     "ghproxy.com",
                     "cdn.jsdelivr.net",
                     "testingcf.jsdelivr.net",
                     "larkoffice.com",
                     "byted.org",
-                    "bytedance.net"
+                    "bytedance.net",
+                    "feishu.cn",
+                    "feishucdn.com"
                 ],
                 "server": "localDns"
             },
@@ -246,7 +248,9 @@
                     "d.metacubex.one",
                     "larkoffice.com",
                     "byted.org",
-                    "bytedance.net"
+                    "bytedance.net",
+                    "feishu.cn",
+                    "feishucdn.com"
                 ],
                 "outbound": "direct"
             },
@@ -261,12 +265,14 @@
                     "claude.ai",
                     "grazie.ai",
                     "bing.com",
+                    "copilot.microsoft.com",
+                    "bingapis.com",
                     "bard.google.com",
                     "gemini.google.com",
                     "googleapis.com",
                     "clients6.google.com",
-                    "groq.com",
-                    "hume.ai"
+                    "hume.ai",
+                    "groq.com"
                 ],
                 "outbound": "🤖 AI 节点"
             },
