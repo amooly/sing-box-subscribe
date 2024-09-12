@@ -290,7 +290,8 @@
                     "clients6.google.com",
                     "hume.ai",
                     "groq.com",
-                    "character.ai"
+                    "character.ai",
+                    "perplexity.ai"
                 ],
                 "outbound": "🤖 AI 节点"
             },
