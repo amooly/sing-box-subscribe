@@ -272,7 +272,9 @@
                     "googleapis.com",
                     "clients6.google.com",
                     "hume.ai",
-                    "groq.com"
+                    "groq.com",
+                    "x.ai",
+                    "x.com"
                 ],
                 "outbound": "🤖 AI 节点"
             },
