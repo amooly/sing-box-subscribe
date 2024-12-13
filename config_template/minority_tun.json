@@ -291,7 +291,9 @@
                     "hume.ai",
                     "groq.com",
                     "character.ai",
-                    "perplexity.ai"
+                    "perplexity.ai",
+                    "x.ai",
+                    "x.com"
                 ],
                 "outbound": "🤖 AI 节点"
             },
