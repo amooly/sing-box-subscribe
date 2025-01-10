@@ -1,6 +1,6 @@
 {
     "log": {
-        "level": "debug",
+        "level": "info",
         "timestamp": true
     },
     "experimental": {
@@ -154,7 +154,7 @@
             "tolerance": 50
         },
         {
-            "tag": "🎥 Youtube",
+            "tag": "🎥 VideoSite",
             "type": "selector",
             "outbounds": [
                 "direct",
@@ -175,6 +175,24 @@
                         "🇭🇰|HK|hk|香港|港|HongKong"
                     ]
                 }
+            ]
+        },
+        {
+            "tag": "🔍 Google",
+            "type": "selector",
+            "outbounds": [
+                "Default Proxy",
+                "🤖 AI 节点",
+                "direct"
+            ]
+        },
+        {
+            "tag": "🪟 Microsoft",
+            "type": "selector",
+            "outbounds": [
+                "direct",
+                "Default Proxy",
+                "🤖 AI 节点"
             ]
         },
         {
@@ -299,9 +317,11 @@
             },
             {
                 "rule_set": [
-                    "geosite-youtube"
+                    "geosite-youtube",
+                    "geoip-netflix",
+                    "geosite-netflix"
                 ],
-                "outbound": "🎥 Youtube"
+                "outbound": "🎥 VideoSite"
             },
             {
                 "rule_set": "geosite-apple",
@@ -310,7 +330,18 @@
             {
                 "rule_set": [
                     "geoip-google",
-                    "geosite-google",
+                    "geosite-google"
+                ],
+                "outbound": "🔍 Google"
+            },
+            {
+                "rule_set": [
+                    "geosite-microsoft"
+                ],
+                "outbound": "🪟 Microsoft"
+            },
+            {
+                "rule_set": [
                     "geoip-telegram",
                     "geosite-telegram",
                     "geoip-twitter",
