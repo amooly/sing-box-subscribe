@@ -305,12 +305,7 @@
                     "clash.razord.top",
                     "yacd.metacubex.one",
                     "yacd.haishan.me",
-                    "d.metacubex.one",
-                    "larkoffice.com",
-                    "byted.org",
-                    "bytedance.net",
-                    "feishu.cn",
-                    "feishucdn.com"
+                    "d.metacubex.one"
                 ],
                 "outbound": "direct"
             },
@@ -383,7 +378,6 @@
                     "geoip-twitter",
                     "geosite-twitter",
                     "geosite-github",
-                    "geosite-instagram",
                     "geosite-facebook",
                     "geosite-geolocation-!cn"
                 ],
