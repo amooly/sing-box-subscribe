@@ -233,14 +233,6 @@
             ]
         },
         {
-            "tag": "🛑 AdBlock",
-            "type": "selector",
-            "outbounds": [
-                "block",
-                "direct"
-            ]
-        },
-        {
             "tag": "🌏 cn",
             "type": "selector",
             "outbounds": [
@@ -251,14 +243,6 @@
         {
             "type": "direct",
             "tag": "direct"
-        },
-        {
-            "type": "dns",
-            "tag": "dns-out"
-        },
-        {
-            "type": "block",
-            "tag": "block"
         }
     ],
     "route": {
@@ -309,18 +293,9 @@
                 "outbound": "direct"
             },
             {
-                "protocol": "dns",
-                "outbound": "dns-out"
-            },
-            {
-                "network": "udp",
-                "port": 443,
-                "outbound": "block"
-            },
-            {
                 "rule_set": "geosite-category-ads-all",
                 "clash_mode": "global",
-                "outbound": "🛑 AdBlock"
+                "outbound": "Default Proxy"
             },
             {
                 "clash_mode": "direct",
@@ -378,12 +353,19 @@
                 "rule_set": [
                     "geosite-youtube",
                     "geoip-netflix",
-                    "geosite-netflix"
+                    "geosite-netflix",
+                    "geosite-disney",
+                    "geosite-hbo",
+                    "geosite-primevideo"
                 ],
                 "outbound": "🎥 VideoSite"
             },
             {
-                "rule_set": "geosite-apple",
+                "rule_set": [
+                    "geoip-apple",
+                    "geosite-apple",
+                    "geosite-amazon"
+                ],
                 "outbound": "🍎 Apple"
             },
             {
