@@ -44,12 +44,7 @@
                 "domain_suffix": [
                     "ghproxy.com",
                     "cdn.jsdelivr.net",
-                    "testingcf.jsdelivr.net",
-                    "larkoffice.com",
-                    "byted.org",
-                    "bytedance.net",
-                    "feishu.cn",
-                    "feishucdn.com"
+                    "testingcf.jsdelivr.net"
                 ],
                 "server": "google"
             },
