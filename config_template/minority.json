@@ -41,10 +41,8 @@
         ],
         "rules": [
             {
-                "domain_suffix": [
-                    "ghproxy.com",
-                    "cdn.jsdelivr.net",
-                    "testingcf.jsdelivr.net"
+          "domain": [
+            "cdn.jsdelivr.net"
                 ],
                 "server": "google"
             },
@@ -163,9 +161,12 @@
             "tag": "🎥 VideoSite",
             "type": "selector",
             "outbounds": [
-                "direct",
-                "Default Proxy"
-            ]
+
+                "Default Proxy",
+                "🤖 AI 节点",
+                "direct"
+            ],
+            "default": "Default Proxy"
         },
         {
             "tag": "🤖 AI 节点",
@@ -206,7 +207,8 @@
             "type": "selector",
             "outbounds": [
                 "direct",
-                "Default Proxy"
+                "Default Proxy",
+                "🤖 AI 节点"
             ]
         },
         {
@@ -286,37 +288,15 @@
                 "outbound": "🤖 AI 节点"
             },
             {
-                "domain_suffix": [
-                    "openai.com",
-                    "anthropic.com",
-                    "claude.ai",
-                    "grazie.ai",
-                    "bing.com",
-                    "copilot.microsoft.com",
-                    "bingapis.com",
-                    "bard.google.com",
-                    "gemini.google.com",
-                    "googleapis.com",
-                    "clients6.google.com",
-                    "hume.ai",
-                    "groq.com",
-                    "character.ai",
-                    "perplexity.ai",
-                    "x.ai",
-                    "x.com"
-                ],
+                "rule_set": "geosite-ai",
                 "outbound": "🤖 AI 节点"
             },
             {
                 "rule_set": [
-                    "geosite-youtube",
-                    "geoip-netflix",
-                    "geosite-netflix",
-                    "geosite-disney",
-                    "geosite-hbo",
-                    "geosite-primevideo"
+                    "geoip-google",
+                    "geosite-google"
                 ],
-                "outbound": "🎥 VideoSite"
+                "outbound": "🔍 Google"
             },
             {
                 "rule_set": [
@@ -325,13 +305,6 @@
                     "geosite-amazon"
                 ],
                 "outbound": "🍎 Apple"
-            },
-            {
-                "rule_set": [
-                    "geoip-google",
-                    "geosite-google"
-                ],
-                "outbound": "🔍 Google"
             },
             {
                 "rule_set": [
@@ -350,6 +323,17 @@
                     "geosite-geolocation-!cn"
                 ],
                 "outbound": "Default Proxy"
+            },
+            {
+                "rule_set": [
+                    "geosite-youtube",
+                    "geoip-netflix",
+                    "geosite-netflix",
+                    "geosite-disney",
+                    "geosite-hbo",
+                    "geosite-primevideo"
+                ],
+                "outbound": "🎥 VideoSite"
             },
             {
                 "rule_set": [
@@ -568,6 +552,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
+                "download_detour": "direct"
+            },
+            {
+                "tag": "geosite-ai",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ai-chat-!cn.srs",
                 "download_detour": "direct"
             }
         ]
