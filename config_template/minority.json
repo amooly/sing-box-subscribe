@@ -321,6 +321,10 @@
                     "geosite-facebook",
                     "geosite-geolocation-!cn"
                 ],
+                "domain_suffix": [
+                    "github.com",
+                    "githubassets.com"
+                ],
                 "outbound": "Default Proxy"
             },
             {
