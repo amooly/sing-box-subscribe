@@ -14,16 +14,10 @@
         },
         "cache_file": {
             "enabled": true,
-            "store_fakeip": true,
-            "store_rdrc": true
+            "store_fakeip": false
         }
     },
     "dns": {
-        "fakeip": {
-            "enabled": true,
-            "inet4_range": "198.18.0.0/15",
-            "inet6_range": "fc00::/18"
-        },
         "servers": [
             {
                 "tag": "google",
@@ -33,10 +27,6 @@
                 "tag": "local",
                 "address": "local",
                 "detour": "direct"
-            },
-            {
-                "tag": "fakeip",
-                "address": "fakeip"
             }
         ],
         "rules": [
@@ -47,50 +37,29 @@
                 "server": "local"
             },
             {
+                "rule_set": "geosite-category-ads-all",
+                "server": "block"
+            },
+            {
                 "outbound": "any",
-                "server": "local"
+                "server": "local",
+                "disable_cache": true
             },
             {
                 "clash_mode": "direct",
                 "server": "local"
             },
             {
+                "rule_set": "geosite-cn",
+                "server": "localDns"
+            },
+            {
                 "clash_mode": "global",
                 "server": "google"
             },
             {
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],
-                "rule_set": "geosite-cn",
-                "server": "fakeip"
-            },
-            {
-                "rule_set": "geosite-cn",
-                "server": "local"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geosite-geolocation-!cn",
-                        "invert": true
-                    },
-                    {
-                        "rule_set": "geoip-cn"
-                    }
-                ],
-                "server": "google",
-                "client_subnet": "114.114.114.114/24"
-            },
-            {
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],
-                "server": "fakeip"
+                "rule_set": "geosite-geolocation-!cn",
+                "server": "google"
             }
         ],
         "independent_cache": true,
@@ -194,9 +163,9 @@
             ],
             "filter": [
                 {
-                    "action": "exclude",
+                    "action": "include",
                     "keywords": [
-                        "🇭🇰|HK|hk|香港|港|HongKong"
+                        "GPT|US|us|美国|美|America|🇺🇸"
                     ]
                 }
             ]
