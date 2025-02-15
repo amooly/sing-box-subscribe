@@ -216,8 +216,8 @@
         "rules": [
             {
                 "inbound": [
-                    "tun-in",
-                    "mixed-in"
+                    "tun",
+                    "mixed"
                 ],
                 "action": "sniff"
             },
