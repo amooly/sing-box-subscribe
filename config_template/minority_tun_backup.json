@@ -39,7 +39,7 @@
             },
             {
                 "rule_set": "geosite-category-ads-all",
-                "server": "block"
+                "server": "reject"
             },
             {
                 "outbound": "any",
@@ -208,10 +208,6 @@
         {
             "type": "dns",
             "tag": "dns-out"
-        },
-        {
-            "type": "block",
-            "tag": "block"
         }
     ],
     "route": {
@@ -255,11 +251,11 @@
             {
                 "network": "udp",
                 "port": 443,
-                "outbound": "block"
+                "action": "reject"
             },
             {
                 "rule_set": "geosite-category-ads-all",
-                "outbound": "🛑 AdBlock"
+                "action": "reject"
             },
             {
                 "clash_mode": "direct",
